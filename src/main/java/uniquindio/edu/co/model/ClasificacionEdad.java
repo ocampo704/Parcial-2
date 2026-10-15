@@ -1,5 +1,8 @@
 package uniquindio.edu.co.model;
 
+/**
+ * define las clasificaciones de edad de las películas.
+ */
 public enum ClasificacionEdad {
     APTOPARATODOS,
     MAYORES_DE_7,

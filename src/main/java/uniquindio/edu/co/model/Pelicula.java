@@ -7,6 +7,22 @@ public class Pelicula {
     private Genero genero;
     private ClasificacionEdad clasificacionEdad;
 
+    /**
+
+     * metodo constructor de la clase Pelicula
+
+     * @param codigo del objeto
+
+     * @param titulo del objeto
+
+     * @param duracionMin del objeto
+
+     * @param genero del objeto
+
+     * @param clasificacionEdad del objeto
+
+     */
+
     public Pelicula(int codigo, String titulo, int duracionMin, Genero genero, ClasificacionEdad clasificacionEdad) {
         this.codigo = codigo;
         this.titulo = titulo;

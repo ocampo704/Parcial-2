@@ -6,6 +6,20 @@ public abstract class Persona {
     private String email;
     private String telefono;
 
+    /**
+
+     * metodo constructor de la clase Persona
+
+     * @param documento del objeto
+
+     * @param nombre del objeto
+
+     * @param email del objeto
+
+     * @param telefono del objeto
+
+     */
+
     public Persona(int documento, String nombre, String email, String telefono) {
         this.documento = documento;
         this.nombre = nombre;

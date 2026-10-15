@@ -5,6 +5,26 @@ public class Operario extends Persona {
     private String fechaContratacion;
     private double salario;
 
+    /**
+
+     * metodo constructor de la clase Operario
+
+     * @param documento del objeto
+
+     * @param nombre del objeto
+
+     * @param email del objeto
+
+     * @param telefono del objeto
+
+     * @param codigoEmpleado del objeto
+
+     * @param fechaContratacion del objeto
+
+     * @param salario del objeto
+
+     */
+
     public Operario(int documento, String nombre, String email, String telefono, int codigoEmpleado, String fechaContratacion, double salario) {
         super(documento, nombre, email, telefono);
         this.codigoEmpleado = codigoEmpleado;

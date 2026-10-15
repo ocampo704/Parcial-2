@@ -1,5 +1,8 @@
 package uniquindio.edu.co.model;
 
+/**
+ * define los géneros de las películas.
+ */
 public enum Genero {
     ACCION,
     COMEDIA,

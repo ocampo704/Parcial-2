@@ -6,6 +6,20 @@ public class Sala {
     private int capacidadMaxima;
     private TipoSala tipoSala;
 
+    /**
+
+     * metodo constructor de la clase Sala
+
+     * @param codigo del objeto
+
+     * @param nombre del objeto
+
+     * @param capacidadMaxima del objeto
+
+     * @param tipoSala del objeto
+
+     */
+
     public Sala(int codigo, String nombre, int capacidadMaxima, TipoSala tipoSala) {
         this.codigo = codigo;
         this.nombre = nombre;

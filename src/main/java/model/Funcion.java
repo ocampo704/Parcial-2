@@ -11,6 +11,15 @@ public class Funcion {
     private Sala sala;
     private ArrayList<Boleta> boletasVendidas;
 
+    /**
+     * metodo constructor de la clase Funcion
+     * @param codigo de la funcion
+     * @param fecha de la funcion
+     * @param horaInicio de la funcion
+     * @param precioBase de la funcion
+     * @param pelicula de la funcion
+     * @param sala de la funcion
+     */
     public Funcion(int codigo, String fecha, String horaInicio, double precioBase, Pelicula pelicula, Sala sala) {
         this.codigo = codigo;
         this.fecha = fecha;
@@ -20,6 +29,7 @@ public class Funcion {
         this.sala = sala;
         this.boletasVendidas = new ArrayList<>();
     }
+
 
     public boolean estaOcupado(String fila, int asiento) {
         for (Boleta b : boletasVendidas) {

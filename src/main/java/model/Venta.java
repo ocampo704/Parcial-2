@@ -9,6 +9,13 @@ public class Venta {
     private Operario operario;
     private ArrayList<Boleta> listBoletas;
 
+    /**
+     * metodo constructor de la clase Venta
+     * @param codigo de la venta
+     * @param fecha de la venta
+     * @param cliente de la venta
+     * @param operario de la venta
+     */
     public Venta(int codigo, String fecha, Cliente cliente, Operario operario) {
         this.codigo = codigo;
         this.fecha = fecha;

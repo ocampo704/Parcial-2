@@ -22,7 +22,6 @@ public class Pelicula {
         this.genero = genero;
         this.clasificacionEdad = clasificacionEdad;
     }
-
     public int getCodigo() {
         return codigo;
     }

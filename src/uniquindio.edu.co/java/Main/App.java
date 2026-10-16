@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 
 public class App {
 
+    /**
+     * metodo principal que inicia la aplicacion CinePlus
+     * @param args argumentos de la linea de comandos
+     */
     public static void main(String[] args) {
         CinePlus cine = new CinePlus(
                 "CinePlus", "123456", "Armenia", "3001234567", "www.cineplus.com"
@@ -58,6 +62,10 @@ public class App {
         } while (opcion != 0);
     }
 
+    /**
+     * metodo para registrar una pelicula en el sistema
+     * @param cine objeto CinePlus donde se registra
+     */
     private static void registrarPelicula(CinePlus cine) {
         try {
             int codigo = Integer.parseInt(JOptionPane.showInputDialog("Código de la película:"));
@@ -88,6 +96,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para registrar un cliente en el sistema
+     * @param cine objeto CinePlus donde se registra
+     */
     private static void registrarCliente(CinePlus cine) {
         try {
             int documento = Integer.parseInt(JOptionPane.showInputDialog("Documento:"));
@@ -112,6 +124,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para registrar un operario en el sistema
+     * @param cine objeto CinePlus donde se registra
+     */
     private static void registrarOperario(CinePlus cine) {
         try {
             int documento = Integer.parseInt(JOptionPane.showInputDialog("Documento:"));
@@ -137,6 +153,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para registrar una sala en el sistema
+     * @param cine objeto CinePlus donde se registra
+     */
     private static void registrarSala(CinePlus cine) {
         try {
             int codigo = Integer.parseInt(JOptionPane.showInputDialog("Código de la sala:"));
@@ -162,6 +182,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para consultar una pelicula por codigo
+     * @param cine objeto CinePlus donde se busca
+     */
     private static void consultarPelicula(CinePlus cine) {
         try {
             int codigo = Integer.parseInt(JOptionPane.showInputDialog("Código de la película:"));
@@ -177,6 +201,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para consultar una sala por codigo
+     * @param cine objeto CinePlus donde se busca
+     */
     private static void consultarSala(CinePlus cine) {
         try {
             int codigo = Integer.parseInt(JOptionPane.showInputDialog("Código de la sala:"));
@@ -192,6 +220,11 @@ public class App {
             JOptionPane.showMessageDialog(null, "Código no válido.");
         }
     }
+
+    /**
+     * metodo para programar una funcion de pelicula
+     * @param cine objeto CinePlus donde se programa
+     */
     private static void programarFuncion(CinePlus cine) {
         try {
             int codigo = Integer.parseInt(JOptionPane.showInputDialog("Código función:"));
@@ -217,6 +250,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para vender una boleta
+     * @param cine objeto CinePlus donde se realiza la venta
+     */
     private static void venderBoleta(CinePlus cine) {
         try {
             int codVenta = Integer.parseInt(JOptionPane.showInputDialog("Código venta:"));
@@ -241,6 +278,10 @@ public class App {
         }
     }
 
+    /**
+     * metodo para calcular la ocupacion de una funcion
+     * @param cine objeto CinePlus donde se calcula
+     */
     private static void calcularOcupacion(CinePlus cine) {
         try {
             int codFuncion = Integer.parseInt(JOptionPane.showInputDialog("Código función:"));

@@ -1,4 +1,4 @@
-package model;
+package uniquindio.edu.co.model;
 
 /**
  * record que representa la boleta de una funcion

@@ -1,4 +1,4 @@
-package model;
+package uniquindio.edu.co.model;
 
 /**
  * define las clasificaciones de edad de las películas.

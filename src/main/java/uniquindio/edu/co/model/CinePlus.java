@@ -1,5 +1,4 @@
-package model;
-
+package uniquindio.edu.co.model;
 import java.util.ArrayList;
 
 public class CinePlus {

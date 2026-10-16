@@ -1,4 +1,4 @@
-package model;
+package uniquindio.edu.co.model;
 
 public class Operario extends Persona {
     private int codigoEmpleado;

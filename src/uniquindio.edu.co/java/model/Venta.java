@@ -13,10 +13,10 @@ public class Venta {
 
     /**
      * metodo constructor de la clase Venta
-     * @param codigo del objeto
-     * @param fecha del objeto
-     * @param cliente del objeto
-     * @param operario del objeto
+     * @param codigo codigo de la venta
+     * @param fecha fecha de la venta
+     * @param cliente cliente que compra
+     * @param operario operario que vende
      */
     public Venta(int codigo, String fecha, Cliente cliente, Operario operario) {
         this.codigo = codigo;

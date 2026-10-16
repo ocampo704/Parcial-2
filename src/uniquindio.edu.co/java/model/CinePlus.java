@@ -17,12 +17,11 @@ public class CinePlus {
     private ArrayList<Persona> listPersonas;
 
     /**
-     * metodo constructor de la clase CinePlus
-     * @param nombre del objeto
-     * @param nit del objeto
-     * @param direccion del objeto
-     * @param telefono del objeto
-     * @param paginaWeb del objeto
+     * @param nombre nombre del cine
+     * @param nit nit del cine
+     * @param direccion direccion del cine
+     * @param telefono telefono del cine
+     * @param paginaWeb pagina web del cine
      */
     public CinePlus(String nombre, String nit, String direccion,
                     String telefono, String paginaWeb) {
@@ -90,17 +89,28 @@ public class CinePlus {
     }
 
     /**
-     * metodo para programar una funcion
+     * metodo para programar una funcion validando cruce horario y codigo duplicado
      * @param f funcion que se desea programar
      * @return true si se programa correctamente
      */
     public boolean programarFuncion(Funcion f) {
+        if (buscarFuncionPorCodigo(f.getCodigo()) != null) {
+            return false;
+        }
         if (validarCruceHorario(f.getSala(), f.getFecha(), f.getHoraInicio(), f.getPelicula().getDuracionMin())) {
             return false;
         }
         return listFunciones.add(f);
     }
 
+    /**
+     * metodo para validar cruces de horario considerando duracion
+     * @param sala sala de la funcion
+     * @param fecha fecha de la funcion
+     * @param horaInicio hora de inicio
+     * @param duracionMin duracion en minutos
+     * @return true si existe cruce de horario
+     */
     public boolean validarCruceHorario(Sala sala, String fecha, String horaInicio, int duracionMin) {
         int nuevoInicio = convertirHoraAMinutos(horaInicio);
         int nuevoFin = nuevoInicio + duracionMin;
@@ -118,6 +128,11 @@ public class CinePlus {
         return false;
     }
 
+    /**
+     * metodo privado para convertir hora HH:mm a minutos totales
+     * @param hora hora en formato HH:mm
+     * @return minutos totales desde las 00:00
+     */
     private int convertirHoraAMinutos(String hora) {
         String[] p = hora.split(":");
         return Integer.parseInt(p[0]) * 60 + Integer.parseInt(p[1]);
@@ -205,10 +220,21 @@ public class CinePlus {
         return f != null && f.estaOcupado(fila, asiento);
     }
 
+    /**
+     * metodo para vender una boleta aplicando recargos y descuentos
+     * @param codigoVenta codigo de la venta
+     * @param fecha fecha de la venta
+     * @param documentoCliente documento del cliente
+     * @param codigoEmpleado codigo del operario
+     * @param codigoFuncion codigo de la funcion
+     * @param fila fila del asiento
+     * @param asiento numero del asiento
+     * @return true si se vende correctamente
+     */
     public boolean venderBoleta(int codigoVenta, String fecha, int documentoCliente, int codigoEmpleado, int codigoFuncion, String fila, int asiento) {
         Funcion funcion = buscarFuncionPorCodigo(codigoFuncion);
         Cliente cliente = buscarClientePorDocumento(documentoCliente);
-        Operario operario = buscarOperarioPorDocumento(codigoEmpleado);
+        Operario operario = buscarOperarioPorCodigo(codigoEmpleado);
 
         if (funcion == null || cliente == null || operario == null) return false;
         if (asientoOcupado(codigoFuncion, fila, asiento)) return false;
@@ -231,6 +257,25 @@ public class CinePlus {
         return true;
     }
 
+    /**
+     * metodo para buscar un operario por su codigo de empleado
+     * @param codigoEmpleado codigo del empleado
+     * @return operario encontrado o null
+     */
+    public Operario buscarOperarioPorCodigo(int codigoEmpleado) {
+        for (Persona p : listPersonas) {
+            if (p instanceof Operario && ((Operario)p).getCodigoEmpleado() == codigoEmpleado) {
+                return (Operario) p;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * metodo para buscar una venta por su codigo
+     * @param codigo codigo de la venta
+     * @return venta encontrada o null
+     */
     public Venta buscarVentaPorCodigo(int codigo) {
         for (Venta v : listVentas) if (v.getCodigo() == codigo) return v;
         return null;
@@ -244,6 +289,21 @@ public class CinePlus {
     public double calcularOcupacionFuncion(int codigoFuncion) {
         Funcion f = buscarFuncionPorCodigo(codigoFuncion);
         return f != null ? f.porcentajeOcupacion() : 0.0;
+    }
+
+    /**
+     * metodo para calcular ingresos generados por una funcion
+     * @param codigoFuncion codigo de la funcion
+     * @return total de ingresos
+     */
+    public double calcularIngresosFuncion(int codigoFuncion) {
+        Funcion f = buscarFuncionPorCodigo(codigoFuncion);
+        if (f == null) return 0;
+        double total = 0;
+        for (Boleta b : f.getBoletasVendidas()) {
+            total += b.valorPagado();
+        }
+        return total;
     }
 
     public String getNombre() {

@@ -1,7 +1,12 @@
 package model;
 
 /**
- * representa la boleta de una función.
+ * record que representa la boleta de una funcion
+ * @param codigo codigo unico de la boleta
+ * @param fila fila del asiento
+ * @param asiento numero del asiento
+ * @param valorPagado valor final pagado
+ * @param funcion funcion asociada
  */
 public record Boleta(int codigo, String fila, int asiento, double valorPagado, Funcion funcion) {
 
@@ -17,30 +22,6 @@ public record Boleta(int codigo, String fila, int asiento, double valorPagado, F
         return conRecargo * (1 - descuento / 100.0);
     }
 
-    @Override
-    public int codigo() {
-        return codigo;
-    }
-
-    @Override
-    public String fila() {
-        return fila;
-    }
-
-    @Override
-    public int asiento() {
-        return asiento;
-    }
-
-    @Override
-    public double valorPagado() {
-        return valorPagado;
-    }
-
-    @Override
-    public Funcion funcion() {
-        return funcion;
-    }
 
     @Override
     public String toString() {

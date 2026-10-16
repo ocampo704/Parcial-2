@@ -6,15 +6,13 @@ public class Cliente extends Persona {
 
     /**
      * metodo constructor de la clase Cliente
-     *
-     * @param documento        del objeto
-     * @param nombre           del objeto
-     * @param email            del objeto
-     * @param telefono         del objeto
-     * @param codigoAfiliacion del objeto
-     * @param descuento        del objeto
+     * @param documento documento del cliente
+     * @param nombre nombre del cliente
+     * @param email email del cliente
+     * @param telefono telefono del cliente
+     * @param codigoAfiliacion codigo de afiliacion
+     * @param descuento descuento del cliente
      */
-
     public Cliente(int documento, String nombre, String email, String telefono, int codigoAfiliacion, double descuento) {
         super(documento, nombre, email, telefono);
         this.codigoAfiliacion = codigoAfiliacion;

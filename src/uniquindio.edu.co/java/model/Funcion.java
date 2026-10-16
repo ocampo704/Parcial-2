@@ -1,5 +1,3 @@
-
-
 package model;
 
 import java.util.ArrayList;
@@ -34,6 +32,12 @@ public class Funcion {
         this.boletasVendidas = new ArrayList<>();
     }
 
+    /**
+     * metodo para verificar si un asiento esta ocupado
+     * @param fila fila del asiento
+     * @param asiento numero del asiento
+     * @return true si esta ocupado, false si no
+     */
     public boolean estaOcupado(String fila, int asiento) {
         for (Boleta b : boletasVendidas) {
             if (b.fila().equalsIgnoreCase(fila)
@@ -44,6 +48,10 @@ public class Funcion {
         return false;
     }
 
+    /**
+     * metodo para calcular el porcentaje de ocupacion de la sala
+     * @return porcentaje de ocupacion
+     */
     public double porcentajeOcupacion() {
         if (sala.getCapacidadMaxima() <= 0) {
             return 0.0;
@@ -53,6 +61,10 @@ public class Funcion {
                 / sala.getCapacidadMaxima() * 100.0;
     }
 
+    /**
+     * metodo para agregar una boleta a la funcion
+     * @param boleta boleta a agregar
+     */
     public void agregarBoleta(Boleta boleta) {
         if (boleta != null && !estaOcupado(boleta.fila(), boleta.asiento())) {
             boletasVendidas.add(boleta);

@@ -7,19 +7,12 @@ public class Sala {
     private TipoSala tipoSala;
 
     /**
-
      * metodo constructor de la clase Sala
-
-     * @param codigo del objeto
-
-     * @param nombre del objeto
-
-     * @param capacidadMaxima del objeto
-
-     * @param tipoSala del objeto
-
+     * @param codigo codigo de la sala
+     * @param nombre nombre de la sala
+     * @param capacidadMaxima capacidad maxima de la sala
+     * @param tipoSala tipo de sala
      */
-
     public Sala(int codigo, String nombre, int capacidadMaxima, TipoSala tipoSala) {
         this.codigo = codigo;
         this.nombre = nombre;

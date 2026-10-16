@@ -8,7 +8,6 @@ public class CinePlus {
     private String direccion;
     private String telefono;
     private String paginaWeb;
-
     private ArrayList<Sala> listSalas;
     private ArrayList<Pelicula> listPeliculas;
     private ArrayList<Funcion> listFunciones;

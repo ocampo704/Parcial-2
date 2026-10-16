@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model;
+package model;
 
 /**
  * define los tipos de sala disponibles.

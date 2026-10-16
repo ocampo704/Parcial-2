@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model;
+package model;
 
 import java.util.ArrayList;
 
@@ -95,31 +95,32 @@ public class CinePlus {
      * @return true si se programa correctamente
      */
     public boolean programarFuncion(Funcion f) {
-        if (buscarFuncionPorCodigo(f.getCodigo()) != null) {
-            return false;
-        }
-        if (validarCruceHorario(f.getSala(), f.getFecha(), f.getHoraInicio())) {
+        if (validarCruceHorario(f.getSala(), f.getFecha(), f.getHoraInicio(), f.getPelicula().getDuracionMin())) {
             return false;
         }
         return listFunciones.add(f);
     }
 
-    /**
-     * metodo para validar cruces de horario en una sala
-     * @param sala sala de la funcion
-     * @param fecha fecha de la funcion
-     * @param horaInicio hora de inicio de la funcion
-     * @return true si existe un cruce de horario
-     */
-    public boolean validarCruceHorario(Sala sala, String fecha, String horaInicio) {
+    public boolean validarCruceHorario(Sala sala, String fecha, String horaInicio, int duracionMin) {
+        int nuevoInicio = convertirHoraAMinutos(horaInicio);
+        int nuevoFin = nuevoInicio + duracionMin;
+
         for (Funcion f : listFunciones) {
-            if (f.getSala().getCodigo() == sala.getCodigo()
-                    && f.getFecha().equalsIgnoreCase(fecha)
-                    && f.getHoraInicio().equalsIgnoreCase(horaInicio)) {
-                return true;
+            if (f.getSala().getCodigo() == sala.getCodigo() && f.getFecha().equalsIgnoreCase(fecha)) {
+                int existenteInicio = convertirHoraAMinutos(f.getHoraInicio());
+                int existenteFin = existenteInicio + f.getPelicula().getDuracionMin();
+
+                if (nuevoInicio < existenteFin && nuevoFin > existenteInicio) {
+                    return true; // SI se cruza
+                }
             }
         }
         return false;
+    }
+
+    private int convertirHoraAMinutos(String hora) {
+        String[] p = hora.split(":");
+        return Integer.parseInt(p[0]) * 60 + Integer.parseInt(p[1]);
     }
 
     /**
@@ -202,6 +203,37 @@ public class CinePlus {
     public boolean asientoOcupado(int codigoFuncion, String fila, int asiento) {
         Funcion f = buscarFuncionPorCodigo(codigoFuncion);
         return f != null && f.estaOcupado(fila, asiento);
+    }
+
+    public boolean venderBoleta(int codigoVenta, String fecha, int documentoCliente, int codigoEmpleado, int codigoFuncion, String fila, int asiento) {
+        Funcion funcion = buscarFuncionPorCodigo(codigoFuncion);
+        Cliente cliente = buscarClientePorDocumento(documentoCliente);
+        Operario operario = buscarOperarioPorDocumento(codigoEmpleado);
+
+        if (funcion == null || cliente == null || operario == null) return false;
+        if (asientoOcupado(codigoFuncion, fila, asiento)) return false;
+
+        double recargo = 0;
+        if (funcion.getSala().getTipoSala() == TipoSala.VIP) recargo = 30;
+        else if (funcion.getSala().getTipoSala() == TipoSala._3D|| funcion.getSala().getTipoSala().toString().equals("3D")) recargo = 20;
+
+        double valorFinal = Boleta.calcularValorFinal(funcion.getPrecioBase(), recargo, cliente.getDescuento());
+
+        Boleta boleta = new Boleta((int)(Math.random()*10000), fila, asiento, valorFinal, funcion);
+        funcion.agregarBoleta(boleta);
+
+        Venta venta = buscarVentaPorCodigo(codigoVenta);
+        if (venta == null) {
+            venta = new Venta(codigoVenta, fecha, cliente, operario);
+            listVentas.add(venta);
+        }
+        venta.agregarBoleta(boleta);
+        return true;
+    }
+
+    public Venta buscarVentaPorCodigo(int codigo) {
+        for (Venta v : listVentas) if (v.getCodigo() == codigo) return v;
+        return null;
     }
 
     /**

@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model;
+package model;
 
 public abstract class Persona {
     private int documento;

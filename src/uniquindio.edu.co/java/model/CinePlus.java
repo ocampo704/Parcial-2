@@ -246,23 +246,99 @@ public class CinePlus {
         return f != null ? f.porcentajeOcupacion() : 0.0;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getPaginaWeb() {
+        return paginaWeb;
+    }
+
+    public void setPaginaWeb(String paginaWeb) {
+        this.paginaWeb = paginaWeb;
+    }
+
     public ArrayList<Sala> getListSalas() {
         return listSalas;
+    }
+
+    public void setListSalas(ArrayList<Sala> listSalas) {
+        this.listSalas = listSalas;
     }
 
     public ArrayList<Pelicula> getListPeliculas() {
         return listPeliculas;
     }
 
+    public void setListPeliculas(ArrayList<Pelicula> listPeliculas) {
+        this.listPeliculas = listPeliculas;
+    }
+
     public ArrayList<Funcion> getListFunciones() {
         return listFunciones;
+    }
+
+    public void setListFunciones(ArrayList<Funcion> listFunciones) {
+        this.listFunciones = listFunciones;
     }
 
     public ArrayList<Venta> getListVentas() {
         return listVentas;
     }
 
+    public void setListVentas(ArrayList<Venta> listVentas) {
+        this.listVentas = listVentas;
+    }
+
     public ArrayList<Persona> getListPersonas() {
         return listPersonas;
+    }
+
+    public void setListPersonas(ArrayList<Persona> listPersonas) {
+        this.listPersonas = listPersonas;
+    }
+
+    @Override
+    public String toString() {
+        return "CinePlus{" +
+                "nombre='" + nombre + '\'' +
+                ", nit='" + nit + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", paginaWeb='" + paginaWeb + '\'' +
+                ", listSalas=" + listSalas +
+                ", listPeliculas=" + listPeliculas +
+                ", listFunciones=" + listFunciones +
+                ", listVentas=" + listVentas +
+                ", listPersonas=" + listPersonas +
+                '}';
     }
 }

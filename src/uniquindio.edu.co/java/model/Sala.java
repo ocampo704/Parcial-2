@@ -27,15 +27,45 @@ public class Sala {
         this.tipoSala = tipoSala;
     }
 
-    public int getCodigo() { return codigo; }
-    public void setCodigo(int codigo) { this.codigo = codigo; }
+    public int getCodigo() {
+        return codigo;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
-    public int getCapacidadMaxima() { return capacidadMaxima; }
-    public void setCapacidadMaxima(int capacidadMaxima) { this.capacidadMaxima = capacidadMaxima; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public TipoSala getTipoSala() { return tipoSala; }
-    public void setTipoSala(TipoSala tipoSala) { this.tipoSala = tipoSala; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
+    }
+
+    public TipoSala getTipoSala() {
+        return tipoSala;
+    }
+
+    public void setTipoSala(TipoSala tipoSala) {
+        this.tipoSala = tipoSala;
+    }
+
+    @Override
+    public String toString() {
+        return "Sala{" +
+                "codigo=" + codigo +
+                ", nombre='" + nombre + '\'' +
+                ", capacidadMaxima=" + capacidadMaxima +
+                ", tipoSala=" + tipoSala +
+                '}';
+    }
 }

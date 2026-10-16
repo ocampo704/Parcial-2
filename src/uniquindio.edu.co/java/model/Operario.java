@@ -32,12 +32,36 @@ public class Operario extends Persona {
         this.salario = salario;
     }
 
-    public int getCodigoEmpleado() { return codigoEmpleado; }
-    public void setCodigoEmpleado(int codigoEmpleado) { this.codigoEmpleado = codigoEmpleado; }
+    public int getCodigoEmpleado() {
+        return codigoEmpleado;
+    }
 
-    public String getFechaContratacion() { return fechaContratacion; }
-    public void setFechaContratacion(String fechaContratacion) { this.fechaContratacion = fechaContratacion; }
+    public void setCodigoEmpleado(int codigoEmpleado) {
+        this.codigoEmpleado = codigoEmpleado;
+    }
 
-    public double getSalario() { return salario; }
-    public void setSalario(double salario) { this.salario = salario; }
+    public String getFechaContratacion() {
+        return fechaContratacion;
+    }
+
+    public void setFechaContratacion(String fechaContratacion) {
+        this.fechaContratacion = fechaContratacion;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    @Override
+    public String toString() {
+        return "Operario{" +
+                "codigoEmpleado=" + codigoEmpleado +
+                ", fechaContratacion='" + fechaContratacion + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }

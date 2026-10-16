@@ -36,4 +36,12 @@ public class Cliente extends Persona {
     public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "codigoAfiliacion=" + codigoAfiliacion +
+                ", descuento=" + descuento +
+                '}';
+    }
 }

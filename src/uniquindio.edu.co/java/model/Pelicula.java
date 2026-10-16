@@ -31,18 +31,54 @@ public class Pelicula {
         this.clasificacionEdad = clasificacionEdad;
     }
 
-    public int getCodigo() { return codigo; }
-    public void setCodigo(int codigo) { this.codigo = codigo; }
+    public int getCodigo() {
+        return codigo;
+    }
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
-    public int getDuracionMin() { return duracionMin; }
-    public void setDuracionMin(int duracionMin) { this.duracionMin = duracionMin; }
+    public String getTitulo() {
+        return titulo;
+    }
 
-    public Genero getGenero() { return genero; }
-    public void setGenero(Genero genero) { this.genero = genero; }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-    public ClasificacionEdad getClasificacionEdad() { return clasificacionEdad; }
-    public void setClasificacionEdad(ClasificacionEdad clasificacionEdad) { this.clasificacionEdad = clasificacionEdad; }
+    public int getDuracionMin() {
+        return duracionMin;
+    }
+
+    public void setDuracionMin(int duracionMin) {
+        this.duracionMin = duracionMin;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public ClasificacionEdad getClasificacionEdad() {
+        return clasificacionEdad;
+    }
+
+    public void setClasificacionEdad(ClasificacionEdad clasificacionEdad) {
+        this.clasificacionEdad = clasificacionEdad;
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" +
+                "codigo=" + codigo +
+                ", titulo='" + titulo + '\'' +
+                ", duracionMin=" + duracionMin +
+                ", genero=" + genero +
+                ", clasificacionEdad=" + clasificacionEdad +
+                '}';
+    }
 }

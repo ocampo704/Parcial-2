@@ -65,19 +65,50 @@ public class Venta {
         return codigo;
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public String getFecha() {
         return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public Operario getOperario() {
         return operario;
     }
 
+    public void setOperario(Operario operario) {
+        this.operario = operario;
+    }
+
     public ArrayList<Boleta> getListBoletas() {
         return listBoletas;
+    }
+
+    public void setListBoletas(ArrayList<Boleta> listBoletas) {
+        this.listBoletas = listBoletas;
+    }
+
+    @Override
+    public String toString() {
+        return "Venta{" +
+                "codigo=" + codigo +
+                ", fecha='" + fecha + '\'' +
+                ", cliente=" + cliente +
+                ", operario=" + operario +
+                ", listBoletas=" + listBoletas +
+                '}';
     }
 }

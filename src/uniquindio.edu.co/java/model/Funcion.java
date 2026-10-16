@@ -86,4 +86,17 @@ public class Funcion {
     public ArrayList<Boleta> getBoletasVendidas() {
         return boletasVendidas;
     }
+
+    @Override
+    public String toString() {
+        return "Funcion{" +
+                "codigo=" + codigo +
+                ", fecha='" + fecha + '\'' +
+                ", horaInicio='" + horaInicio + '\'' +
+                ", precioBase=" + precioBase +
+                ", pelicula=" + pelicula +
+                ", sala=" + sala +
+                ", boletasVendidas=" + boletasVendidas +
+                '}';
+    }
 }

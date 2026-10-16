@@ -16,4 +16,40 @@ public record Boleta(int codigo, String fila, int asiento, double valorPagado, F
         double conRecargo = precioBase * (1 + recargoPorcentaje / 100.0);
         return conRecargo * (1 - descuento / 100.0);
     }
+
+    @Override
+    public int codigo() {
+        return codigo;
+    }
+
+    @Override
+    public String fila() {
+        return fila;
+    }
+
+    @Override
+    public int asiento() {
+        return asiento;
+    }
+
+    @Override
+    public double valorPagado() {
+        return valorPagado;
+    }
+
+    @Override
+    public Funcion funcion() {
+        return funcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Boleta{" +
+                "codigo=" + codigo +
+                ", fila='" + fila + '\'' +
+                ", asiento=" + asiento +
+                ", valorPagado=" + valorPagado +
+                ", funcion=" + funcion +
+                '}';
+    }
 }
